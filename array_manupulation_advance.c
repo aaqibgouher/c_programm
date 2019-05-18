@@ -31,7 +31,7 @@ void pop(){
 }
 
 // it will remove from that position
-void remove(int position){
+void removee(int position){
 
 }
 
@@ -52,9 +52,8 @@ void sub_array(int start, int end){
 
 void main()
 {
-    int k=9;
     display();
-    push(k); // 2
+    push(2); // 2
     push(5); // 2 5 // 2 6 5
     insert(6,2); // 2 6 5
     display();
@@ -62,7 +61,7 @@ void main()
     find(6); // index - 2
     push(3); // 2 6 5 3
     sub_array(1,2); // 6 5
-    remove(2); // 2 5 3
+    removee(2); // 2 5 3
     pop(); // 2 5
     display();
 }

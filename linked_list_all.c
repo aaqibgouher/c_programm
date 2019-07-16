@@ -165,6 +165,43 @@ void delete_any(){
     print();
 }
 
+void search(){
+    struct node *temp;
+    int flag = 0, n, counter = 1;
+
+    printf("Enter a number you want to search: ");
+    scanf("%d", &n);
+
+    temp = head;
+    while(temp!=NULL){
+        if(temp->data == n){
+            flag = counter;
+            break;
+        }
+        temp = temp->next;
+        counter++;
+    }
+
+    if(flag){
+        printf("Number found at %d position\n", flag);
+    }else{
+        printf("Number not found\n");
+    }
+}
+
+void count(){
+    struct node *temp;
+    int count = 0;
+
+    temp = head;
+    while(temp!=NULL){
+        temp = temp->next;
+        count++;
+    }
+
+    printf("Total node is %d\n", count);
+}
+
 void main()
 {
     head=NULL;
@@ -172,7 +209,7 @@ void main()
     int option, suboption;
     while(1){
         printf("\nEnter your option\n");
-        printf("1: Insert, 2: Delete, 3: Print, 4: Exit\n");
+        printf("1: Insert, 2: Delete, 3: Print, 4: Search, 5: Count. 6: Exit\n");
         scanf("%d", &option);
 
         switch(option){
@@ -215,6 +252,12 @@ void main()
                 print(); 
                 break;
             case 4:
+                search();
+                break;
+            case 5:
+                count();
+                break;
+            case 6:
                 printf("Thanks\n");
                 return; 
                 break;

@@ -9,10 +9,12 @@ typedef struct node
 struct node *head;
 
 void insert_beginning(int n){
+    //created node and assigning the value to it;
     struct node *snode;
     snode = (struct node*)malloc(sizeof(struct node));
     snode->data = n;
-    
+
+    //linking the nodes;
     if(head == NULL){
         snode->next = NULL;
         head = snode;
@@ -23,10 +25,11 @@ void insert_beginning(int n){
 }
 
 void print(){
+    //print via calling the function and taking the temp because if we use that head,then the pointer that connected to first node will be losr;
     struct node *temp;
     temp = head;
     while(temp!=NULL){
-        printf("%d ", temp->data);
+        printf("%d ->", temp->data);
         temp = temp->next;
     }
     printf("\n");

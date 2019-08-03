@@ -8,17 +8,22 @@ typedef struct node
 }sNode;
 struct node *head;
 
-void insert_beginning(int n){
-    struct node *snode;
+void insert(int n, int pos){
+    struct node *snode, *temp;
     snode = (struct node*)malloc(sizeof(struct node));
     snode->data = n;
     
-    if(head == NULL){
-        snode->next = NULL;
+    if(pos == 1){
+        snode->next = head;
         head = snode;
     }else{
-        snode->next = head;
-        head=snode;
+        temp = head;
+        int i;
+        for(i=0;i<pos-2;i++){
+            temp = temp->next;
+        }
+        snode->next = temp->next;
+        temp->next = snode;
     }
 }
 
@@ -36,9 +41,11 @@ void main()
 {
     head=NULL;
 
-    insert_beginning(2);
-    insert_beginning(4);
-    insert_beginning(6);
+    insert(2, 1); // 2
+    insert(4, 2); // 2 4
+    insert(6, 1); // 6 2 4
+    insert(8, 2); // 6 8 2 4
+    insert(10, 3); // 6 8 10 2 4
 
     print();
 }

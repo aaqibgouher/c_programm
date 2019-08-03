@@ -8,8 +8,8 @@ typedef struct node
 }sNode;
 struct node *head;
 
-void insert_beginning(int n){
-    struct node *snode;
+void insert_end(int n){
+    struct node *snode, *temp;
     snode = (struct node*)malloc(sizeof(struct node));
     snode->data = n;
     
@@ -17,8 +17,12 @@ void insert_beginning(int n){
         snode->next = NULL;
         head = snode;
     }else{
-        snode->next = head;
-        head=snode;
+        temp = head;
+        while(temp->next!=NULL){
+            temp = temp->next;
+        }
+        snode->next = NULL;
+        temp->next = snode;
     }
 }
 
@@ -36,9 +40,9 @@ void main()
 {
     head=NULL;
 
-    insert_beginning(2);
-    insert_beginning(4);
-    insert_beginning(6);
+    insert_end(2);
+    insert_end(4);
+    insert_end(6);
 
     print();
 }

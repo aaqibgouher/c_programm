@@ -3,6 +3,7 @@
 
 float choice(int a,int b,char type){
     //char A,G,H;
+    
     float c = (float)(a+b)/2;
     float d = (float)sqrt(a*b);
     float e = (float)(2*a*b)/(a+b);

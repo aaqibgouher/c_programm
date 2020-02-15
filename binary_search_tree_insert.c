@@ -1,3 +1,4 @@
+//binary search tree , creating a binary search tree and making it in inorder:
 #include<stdio.h>
 #include<stdlib.h>
 

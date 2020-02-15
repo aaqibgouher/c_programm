@@ -1,3 +1,4 @@
+//Array rotation clock and anti clock wise//
 #include<stdio.h>
 #include<math.h>
 #include<ctype.h>

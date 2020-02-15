@@ -1,22 +1,30 @@
-
 #include<stdio.h>
+
+int compare(char *s1[],char *s2[]){
+  while(*s1 == *s2){
+    if(*s1 == '\0' || *s2 == '\0');
+    break;
+    s1++;
+    s2++;
+  }
+  if(*s1 == '\0' && *s2 == '\0'){
+    return 1;
+  }
+  else{
+    return 0;
+  }
+}
 
 void main()
 {
-	int a[10] = {0,0,0,0,0,0,0,0,0,0};
-	int i,n;
+  char str1[20],str2[20];
 
-	while(1){
-		printf("enter the numbers:\n");
-		scanf("%d",&n);
+  printf("Enter the first string.\n");
+  scanf("%s",str1);
+  printf("Enter the second string.\n");
+  scanf("%s",str2);
 
-		if(n < 0 || n > 9) break;
-		a[n] ++;
+  if(compare(str1,str2) == 1) printf("Strings are equal.");
+  else printf("Strings are not equal.");
+}
 
-	}
-
-	for(i=0;i<n;i++){
-		printf("%2d = %2d\n",i,a[i]);
-	}
-
-}	

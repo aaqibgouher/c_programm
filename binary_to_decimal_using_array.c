@@ -1,5 +1,6 @@
-#include<stdio.h>;
-#include<math.h>;
+//binary_to_decimal_using_array
+#include<stdio.h>
+#include<math.h>
 
 
 void main()

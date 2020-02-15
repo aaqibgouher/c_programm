@@ -1,3 +1,4 @@
+//finding a given number in an array using binary search //
 #include<stdio.h>
 
 int binary_search(int a[], int left, int right, int k)

@@ -1,27 +1,20 @@
-
 #include<stdio.h>
 
 void main()
 {
-    int i,j,n = 5,a[100][100];
+	int a[] = {1,2,3,4,5};
+	int n = sizeof(a)/sizeof(a[0]);
+	int i,pos=2;
 
-    for(i=0;i<n;i++){
-        for(j=0;j<=i;j++){
-            if(i>0 && j>0){
-                a[i][j] = a[i-1][j-1] + a[i-1][j];
-            }
-            else{
-                a[i][j] = 1;
-            }
-        }
-    }
+	for(i=0;i<n;i++){
+		if(i >= pos){
+			a[i] = a[i+1];
+			//n--;
+		}
+	}
+	n--;
 
-    for(i=0;i<n;i++){
-        for(j=0;j<=i;j++){
-            printf("%d ", a[i][j]);
-        }
-        printf("\n");
-    }
-
-
+	for(i=0;i<n;i++){
+		printf("%d ",a[i]);
+	}
 }

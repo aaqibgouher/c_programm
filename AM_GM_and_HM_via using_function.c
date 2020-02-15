@@ -1,3 +1,4 @@
+//finding arith. mean,geometric mean,harmonic mean using function and printing in function and main func. also://
 #include<stdio.h>;
 #include<math.h>;
 #include<string.h>;

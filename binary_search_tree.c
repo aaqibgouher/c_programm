@@ -1,3 +1,4 @@
+//binary search tree, arranging into inorder,postorder,preorder
 #include<stdio.h>
 #include<stdlib.h>
 

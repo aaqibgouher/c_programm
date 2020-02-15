@@ -1,20 +1,28 @@
 #include<stdio.h>
+#include<string.h>
+
+void count(char s[4][2]){
+	int i,j,count1=0;
+
+	for(i=0;i<4;i++){
+		for(j=0;j<2;j++){
+			if(s[i][j] == 'H'){
+				count1 ++;
+			}
+		}
+		printf("%d\n",count1);
+		count1 = 0;
+	}
+}
 
 void main()
 {
-	int a[] = {1,2,3,4,5};
-	int n = sizeof(a)/sizeof(a[0]);
-	int i,pos=2;
-
-	for(i=0;i<n;i++){
-		if(i >= pos){
-			a[i] = a[i+1];
-			//n--;
+	int i,j;
+	char s[4][2] = {"HH","HT","TH","TT"};
+	for(i=0;i<4;i++){
+		for(j=0;j<2;j++){
+			count(s[i][j]);
 		}
 	}
-	n--;
 
-	for(i=0;i<n;i++){
-		printf("%d ",a[i]);
-	}
 }

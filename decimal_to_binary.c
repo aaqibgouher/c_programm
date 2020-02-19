@@ -1,4 +1,4 @@
-#include<stdio.h>;
+#include<stdio.h>
 void main()
 {
     int i,num=10,a[100],rem;

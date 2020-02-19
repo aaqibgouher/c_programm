@@ -1,28 +1,94 @@
 #include<stdio.h>
-#include<string.h>
+#include<stdlib.h>
 
-void count(char s[4][2]){
-	int i,j,count1=0;
+typedef struct node
+{
+	int data;
+	struct node *next,*prev;
+}d;
 
-	for(i=0;i<4;i++){
-		for(j=0;j<2;j++){
-			if(s[i][j] == 'H'){
-				count1 ++;
-			}
+struct node *head,*tail;
+
+void insert_at_Beg(int n){
+	struct node *temp,*dnode;
+	dnode = (struct node *)malloc(sizeof(struct node));
+	dnode->data = n;
+
+	if(head == NULL && tail == NULL){
+		dnode->next = NULL;
+		head = dnode;
+		dnode->prev = NULL;
+		tail = dnode;
+	}
+	else{
+		dnode->next = head;
+		head->prev = dnode;
+		head = dnode;
+		dnode->prev = NULL;
+
+	}
+}
+
+void print1()
+{
+	struct node *dnode,*temp;
+	temp = head;
+									//printing temp = head or from left to right.						
+	while(temp != NULL){
+		printf("%d <=>",temp->data);
+		temp = temp->next;
+	}
+}
+
+void print()
+{
+	struct node *temp;
+	temp = tail;
+
+	while(temp != NULL){
+		printf("%d <=>",temp->data);		//printing temp = tail or from right to left.
+		temp = temp->prev;
+	}
+}
+
+void insert_at_end(int n){
+	struct node *dnode,*temp;
+	dnode = (struct node *)malloc(sizeof(struct node));
+	dnode->data = n;
+
+	if(head == NULL && tail == NULL){
+		dnode->next = NULL;
+		head = dnode;
+		dnode->prev = NULL;
+		tail = dnode;
+		temp = head;
+	}
+	else{
+		while(temp->next = NULL){
+			temp = temp->next;
 		}
-		printf("%d\n",count1);
-		count1 = 0;
+		dnode->next = NULL;
+		temp->next = dnode;
+		dnode->prev = temp;
+		tail = dnode;
 	}
 }
 
 void main()
 {
-	int i,j;
-	char s[4][2] = {"HH","HT","TH","TT"};
-	for(i=0;i<4;i++){
-		for(j=0;j<2;j++){
-			count(s[i][j]);
-		}
-	}
+	head = NULL;
+	tail = NULL;
+	//insertion in double linked list at the beginnin. 
+	insert_at_Beg(2);//2
+	insert_at_Beg(4);//4 2
+	insert_at_Beg(6);//6 4 2
+	insert_at_Beg(8);//8 6 4 2
+	print1();
+	printf("\n");
+	//print();
 
+	//insertion at end:
+	insert_at_end(10); // 8 6 4 2 10
+	insert_at_end(12); // 8 6 4 2 10 12
+	print1();
 }

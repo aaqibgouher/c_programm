@@ -12,11 +12,7 @@ void insert_beginning(int n){
     struct node *snode;
     snode = (struct node*)malloc(sizeof(struct node));
     snode->data = n;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 84dcbeb76d726ba6bc452a01ac913a26d369ca56
     if(head == NULL){
         snode->next = NULL;
         head = snode;
@@ -31,11 +27,7 @@ void delete_any(int pos){
     int count = 0;
     temp = head;
     prev = NULL;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 84dcbeb76d726ba6bc452a01ac913a26d369ca56
     if(temp != NULL){
         if(temp->next != NULL){
             while(count < pos-1){
@@ -78,11 +70,7 @@ void main()
 
     print(); // 6 4 2
 
-<<<<<<< HEAD
     delete_any(2);
-=======
-    delete_any(1);
->>>>>>> 84dcbeb76d726ba6bc452a01ac913a26d369ca56
 
     print(); // 6 2
 
@@ -90,17 +78,9 @@ void main()
 
     print(); // 6
 
-<<<<<<< HEAD
     delete_any(1);
 
     print(); // 
 
     delete_any(5);
-=======
-    //delete_any(1);
-
-    //print(); //
-
-    //delete_any(5);
->>>>>>> 84dcbeb76d726ba6bc452a01ac913a26d369ca56
 }

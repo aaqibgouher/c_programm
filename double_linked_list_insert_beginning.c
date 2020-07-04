@@ -13,11 +13,7 @@ void insert_beginning(int n){
     struct node *dnode;
     dnode = (struct node*)malloc(sizeof(struct node));
     dnode->data = n;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 84dcbeb76d726ba6bc452a01ac913a26d369ca56
     if(head == NULL && tail == NULL){
         dnode->next = NULL;
         dnode->prev = NULL;

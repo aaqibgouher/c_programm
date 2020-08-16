@@ -1,7 +1,7 @@
 //finding Am,gm,and hm in main function directly//
-#include<stdio.h>;
-#include<math.h>;
-#include<string.h>;
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
 
 float mean(int a,int b,char type[]){
     if(strcmp(type,"AM")==0) return((float)(a+b)/2);

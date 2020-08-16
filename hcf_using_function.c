@@ -1,3 +1,5 @@
+#include<stdio.h>
+
 void main(){
 
     int num1 = 4, num2 = 6;

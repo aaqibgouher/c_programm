@@ -1,18 +1,18 @@
 #include<stdio.h>
 #include<string.h>
 
-void binary(int num,int y){
-	int x = 0,a[100],rem,n=0,i;
+void binary(int num,int y,int total){
+	
+	int x = 0,a[100],rem,n=0,i,new_arr[10][10];
 	if(num == 0){
-		for(i=0;i<y;i++){
-			printf("%d",x);
+		for(j=0;j<y;j++){
+			new_arr[0][j] = 0;
 		}
-		printf("\n");
 	}
 	else{
 		while(num){
 			rem = num % 2;
-			a[n] = rem;
+			a[n] = rem;			//
 			num = num / 2;
 			n++;
 	}	
@@ -32,6 +32,6 @@ void main()
 	scanf("%d",&n);
 	int total = 8;
 	for(i=0;i<total;i++){
-		binary(i,n);
+		binary(i,n,total);		//passing each value to function 
 	}
 }

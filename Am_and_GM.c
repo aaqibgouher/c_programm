@@ -1,6 +1,6 @@
 //program to find arithmatic mean,geometric mean,hearmonic mean using function and returning the value to main function//
-#include<stdio.h>;
-#include<math.h>;
+#include<stdio.h>
+#include<math.h>
 
 float choice(int a,int b,char type){
     //char A,G,H;

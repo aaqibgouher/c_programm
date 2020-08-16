@@ -1,6 +1,6 @@
-#include<stdio.h>;
-#include<math.h>;
-#include<string.h>;
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
 
 int check_for_substr(char str1[] ,char str2[]){
     int l1 = strlen(str1);

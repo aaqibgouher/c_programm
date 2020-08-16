@@ -1,5 +1,5 @@
-#include<stdio.h>;
-#include<math.h>;
+#include<stdio.h>
+#include<math.h>
 
 float get_mean(int a[], int n){
     int i,sum=0;

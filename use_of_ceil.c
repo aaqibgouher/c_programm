@@ -1,5 +1,5 @@
-#include<stdio.h>;
-#include<math.h>;
+#include<stdio.h>
+#include<math.h>
  void cyclicswap(int *a,int *b,int *c);
 int main()
 {

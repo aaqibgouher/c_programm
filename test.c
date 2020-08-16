@@ -1,94 +1,113 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 
-typedef struct node
-{
+typedef struct node{
 	int data;
-	struct node *next,*prev;
-}d;
+	struct node *next;
+}snode;
 
-struct node *head,*tail;
+struct node *head;
 
-void insert_at_Beg(int n){
-	struct node *temp,*dnode;
-	dnode = (struct node *)malloc(sizeof(struct node));
-	dnode->data = n;
+void insert_end(int n){
+	struct node *snode,*temp;
+	snode = (struct node*)malloc(sizeof(struct node));
+	snode->data = n;
 
-	if(head == NULL && tail == NULL){
-		dnode->next = NULL;
-		head = dnode;
-		dnode->prev = NULL;
-		tail = dnode;
+	if(head == NULL){
+		snode->next = NULL;
+		head = snode;
 	}
 	else{
-		dnode->next = head;
-		head->prev = dnode;
-		head = dnode;
-		dnode->prev = NULL;
-
-	}
-}
-
-void print1()
-{
-	struct node *dnode,*temp;
-	temp = head;
-									//printing temp = head or from left to right.						
-	while(temp != NULL){
-		printf("%d <=>",temp->data);
-		temp = temp->next;
-	}
-}
-
-void print()
-{
-	struct node *temp;
-	temp = tail;
-
-	while(temp != NULL){
-		printf("%d <=>",temp->data);		//printing temp = tail or from right to left.
-		temp = temp->prev;
-	}
-}
-
-void insert_at_end(int n){
-	struct node *dnode,*temp;
-	dnode = (struct node *)malloc(sizeof(struct node));
-	dnode->data = n;
-
-	if(head == NULL && tail == NULL){
-		dnode->next = NULL;
-		head = dnode;
-		dnode->prev = NULL;
-		tail = dnode;
 		temp = head;
-	}
-	else{
-		while(temp->next = NULL){
+		while(temp->next != NULL){
 			temp = temp->next;
 		}
-		dnode->next = NULL;
-		temp->next = dnode;
-		dnode->prev = temp;
-		tail = dnode;
+		temp->next = snode;
+		snode->next = NULL;
 	}
 }
 
-void main()
-{
-	head = NULL;
-	tail = NULL;
-	//insertion in double linked list at the beginnin. 
-	insert_at_Beg(2);//2
-	insert_at_Beg(4);//4 2
-	insert_at_Beg(6);//6 4 2
-	insert_at_Beg(8);//8 6 4 2
-	print1();
-	printf("\n");
-	//print();
+void insert_beg(int n){
+	struct node *snode;
+	snode = (struct node*)malloc(sizeof(struct node));
+	snode->data = n;
 
-	//insertion at end:
-	insert_at_end(10); // 8 6 4 2 10
-	insert_at_end(12); // 8 6 4 2 10 12
-	print1();
+	if(head == NULL){
+		snode->next = NULL;
+		head = snode;
+	}
+	else{
+		snode->next = head;
+		head = snode;
+	}
+}
+
+void insert_any(int n,int pos){
+	struct node *snode,*temp;
+	snode = (struct node*)malloc(sizeof(struct node));
+	snode->data = n;
+	int i;
+	
+
+	if(pos == 1){
+		snode->next = head;
+		head = snode;
+	}else{
+		temp = head;
+		for(i=1;i<pos-1;i++){
+			temp = temp->next;
+		}
+
+		snode->next = temp->next;
+		temp->next = snode;
+		
+	}
+}
+
+int count_nodes(){
+	struct node *temp;
+	int count = 0;
+	temp = head;
+
+	while(temp != NULL){
+		count ++;
+		temp = temp->next;
+	}
+
+	return count;
+}
+
+void print(){
+	struct node *temp;
+	temp = head;
+
+	while(temp != NULL){
+		printf("%d -> ",temp->data);
+		temp = temp->next;
+	}
+
+	printf("\n");
+}
+
+void main(){
+	head = NULL;
+
+	insert_end(1);
+	insert_end(2);
+	insert_end(3);
+	insert_end(4);
+	insert_end(5);
+	print();
+	insert_beg(7);
+	insert_beg(8);
+	insert_beg(9);
+	print();		/*9 8 7 1 2 3 4 5*/
+	insert_any(10,1);
+	insert_any(11,3);
+	insert_any(12,8);
+	print();
+
+	printf("%d ",count_nodes());
+
 }
